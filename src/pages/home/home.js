@@ -1,9 +1,12 @@
 import React from 'react';
+import Hero from '../../others/hero';
+import Slider from '../Slider/Slider';
 
 const Home = () => {
     return (
         <div>
-            <h1>hello world</h1>
+            <Hero></Hero>
+            <Slider></Slider>
         </div>
     );
 };

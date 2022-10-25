@@ -1,49 +1,11 @@
 import { Link, NavLink } from 'react-router-dom';
-import { FaUser } from 'react-icons/fa';
 import { useState } from 'react';
 import logo from '../../../assests/logo.png';
-// import './Navbar.css'
+import Switch from '../../../others/Switch';
+import './Navbar.css'
 
 
-// function Navbar() {
-// const [togglerNav, setTogglerNav] = useState(false);
 
-// const clickHandler = () => {
-//     setTogglerNav(!togglerNav);
-// };
-
-
-// return (
-
-// <nav classNameName=' h-auto md:h-24 p-2  mx-auto flex justify-between md:items-center'>
-//     <Link classNameName='flex gap-3 text-red-600 xl:text-5xl md:text-2xl  justify-between md:items-center' to='/home'>
-//         <FcHome classNameName='md:text-3xl sm:text-3xl  xl:text-5xl' />EProcademy
-//     </Link>
-//     <div
-//         classNameName={
-//             togglerNav ? 'flex flex-col gap-4 md:inline' : 'hidden md:inline'
-//         }
-//     >
-//         <NavLink classNameName='nav-link' onClick={clickHandler} to='/home'>
-//             Home
-//         </NavLink>
-//         <NavLink classNameName='nav-link' onClick={clickHandler} to='/courses'>
-//             Courses
-//         </NavLink>
-//         <NavLink classNameName='nav-link' onClick={clickHandler} to='/Blog'>
-//             Blog
-//         </NavLink>
-//         <NavLink classNameName='nav-link' onClick={clickHandler} to='/Statistic'>
-//             Statistic
-//         </NavLink>
-//     </div>
-//     <button
-//         classNameName=' inline md:hidden self-start nav-link'
-//         onClick={clickHandler}
-//     >
-//         {togglerNav ? <LinkiOutlineClose /> : <FaBars />}
-//     </button>
-// </nav>
 
 
 
@@ -95,6 +57,8 @@ const Navbar = () => {
                         >
                             FAQ
                         </NavLink>
+
+                        <Switch></Switch>
 
 
                     </div>
