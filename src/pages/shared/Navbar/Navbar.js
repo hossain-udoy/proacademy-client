@@ -28,32 +28,32 @@ const Navbar = () => {
                             Proacademy
                         </span>
                     </Link>
-                    <div className='flex items-center hidden space-x-8 lg:flex '>
+                    <div className='flex items-center  space-x-8 lg:flex '>
 
 
                         <NavLink
                             to="/"
                             aria-label="Our product"
                             title="Our product"
-                            className="text-xl tracking-wide text-black transition-colors duration-200 hover:bg-red-400 p-1 "
+                            className="text-xl tracking-wide text-black transition-colors duration-200 hover:bg-neutral-900 rounded-md hover:text-white p-2 "
                         >
                             Home
                         </NavLink>
                         <NavLink
                             to="/"
-                            className="text-xl tracking-wide text-black transition-colors duration-200 hover:bg-red-400 p-1 "
+                            className="text-xl tracking-wide text-black transition-colors duration-200 rounded-md hover:bg-neutral-900  hover:text-white p-2 "
                         >
                             Courses
                         </NavLink>
                         <NavLink
                             to="/"
-                            className="text-xl tracking-wide text-black transition-colors duration-200 hover:bg-red-400 p-1 "
+                            className="text-xl tracking-wide text-black transition-colors duration-200 rounded-md hover:bg-neutral-900  hover:text-white p-2 "
                         >
                             Blog
                         </NavLink>
                         <NavLink
                             to="/"
-                            className="text-xl tracking-wide text-black transition-colors duration-200 hover:bg-red-400 p-1 "
+                            className="text-xl tracking-wide text-black transition-colors duration-200 rounded-md hover:bg-neutral-900  hover:text-white p-2 "
                         >
                             FAQ
                         </NavLink>
