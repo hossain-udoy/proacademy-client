@@ -75,12 +75,12 @@ const Navbar = () => {
                     <div className="flex items-center  space-x-8 lg:flex">
 
                         <Link
-                            to="/"
+                            to="/login"
                             className="inline-flex items-center justify-center h-12 px-6 font-medium  text-black transition duration-200 rounded shadow-md  hover:bg-purple-500   focus:shadow-outline focus:outline-none"
-                            aria-label="Sign up"
-                            title="Sign up"
+                            aria-label="Log In"
+                            title="Log In"
                         >
-                            Sign up
+                            Log In
                         </Link>
 
                     </div>
