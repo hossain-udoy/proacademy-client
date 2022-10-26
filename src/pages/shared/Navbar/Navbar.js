@@ -35,7 +35,7 @@ const Navbar = () => {
                             to="/"
                             aria-label="Our product"
                             title="Our product"
-                            className="text-xl tracking-wide nav-link transition-colors duration-200 hover:bg-neutral-900 rounded-md hover:text-white p-2 "
+                            className="text-xl tracking-wide nav-link transition-colors duration-200 hover:bg-neutral-900 rounded-md hover:text-white p-2"
                         >
                             Home
                         </NavLink>
@@ -58,7 +58,7 @@ const Navbar = () => {
                             FAQ
                         </NavLink>
 
-                        <Switch></Switch>
+                        <Switch className='sm:hidden'></Switch>
 
 
                     </div>

@@ -10,54 +10,115 @@ import img5 from "../../assests/img/img-5.jpg"
 // import img8 from "../../assests/img/img-8.jpg"
 
 
-// import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Pagination, EffectCoverflow } from "swiper";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
+// import "swiper/swiper.scss";
+// import "swiper/components/navigation/navigation.scss";
+// import "swiper/components/pagination/pagination.scss";
+// import "swiper/components/effect-coverflow/effect-coverflow.scss";
 
+SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
 
-// import required modules
-import { EffectCoverflow, Pagination } from "swiper";
-
-export default function App() {
+export default function SwiperCoverflow() {
     return (
-        <div className='swiper-container mt-20'>
+        <div className="App">
             <Swiper
-                effect={"coverflow"}
-                grabCursor={true}
-                centeredSlides={true}
-                slidesPerView={"auto"}
+                navigation
+                pagination={{ clickable: true }}
+                effect="coverflow"
                 coverflowEffect={{
                     rotate: 50,
                     stretch: 0,
                     depth: 100,
                     modifier: 1,
-                    slideShadows: true,
+                    slideShadows: false
                 }}
-                pagination={true}
-                modules={[EffectCoverflow, Pagination]}
-                className="mySwiper"
+                slidesPerView={2}
+                centeredSlides
+                style={{ height: "500px" }}
             >
-                <SwiperSlide>
-                    <img src={img1} alt="hello" />
+                <SwiperSlide
+                    style={{
+                        backgroundImage:
+                            "url(https://swiperjs.com/demos/images/nature-1.jpg)"
+                    }}
+                >
+                    Slide 1
                 </SwiperSlide>
-                <SwiperSlide>
-                    <img src={img2} alt="hello" />
+                <SwiperSlide
+                    style={{
+                        backgroundImage:
+                            "url(https://swiperjs.com/demos/images/nature-2.jpg)"
+                    }}
+                >
+                    Slide 2
                 </SwiperSlide>
-                <SwiperSlide>
-                    <img src={img3} alt="hello" />
+                <SwiperSlide
+                    style={{
+                        backgroundImage:
+                            "url(https://swiperjs.com/demos/images/nature-3.jpg)"
+                    }}
+                >
+                    Slide 3
                 </SwiperSlide>
-                <SwiperSlide>
-                    <img src={img4} alt="hello" />
+                <SwiperSlide
+                    style={{
+                        backgroundImage:
+                            "url(https://swiperjs.com/demos/images/nature-4.jpg)"
+                    }}
+                >
+                    Slide 4
                 </SwiperSlide>
-                <SwiperSlide>
-                    <img src={img5} alt="hello" />
+                <SwiperSlide
+                    style={{
+                        backgroundImage:
+                            "url(https://swiperjs.com/demos/images/nature-5.jpg)"
+                    }}
+                >
+                    Slide 5
                 </SwiperSlide>
-
+                <SwiperSlide
+                    style={{
+                        backgroundImage:
+                            "url(https://swiperjs.com/demos/images/nature-6.jpg)"
+                    }}
+                >
+                    Slide 6
+                </SwiperSlide>
+                <SwiperSlide
+                    style={{
+                        backgroundImage:
+                            "url(https://swiperjs.com/demos/images/nature-7.jpg)"
+                    }}
+                >
+                    Slide 7
+                </SwiperSlide>
+                <SwiperSlide
+                    style={{
+                        backgroundImage:
+                            "url(https://swiperjs.com/demos/images/nature-8.jpg)"
+                    }}
+                >
+                    Slide 8
+                </SwiperSlide>
+                <SwiperSlide
+                    style={{
+                        backgroundImage:
+                            "url(https://swiperjs.com/demos/images/nature-9.jpg)"
+                    }}
+                >
+                    Slide 9
+                </SwiperSlide>
+                <SwiperSlide
+                    style={{
+                        backgroundImage:
+                            "url(https://swiperjs.com/demos/images/nature-10.jpg)"
+                    }}
+                >
+                    Slide 10
+                </SwiperSlide>
             </Swiper>
         </div>
     );
