@@ -7,12 +7,14 @@ import AllCourses from "../../pages/Courses/AllCourses";
 import Course from "../../pages/Course/Course";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
+import Notfound from "../../pages/ErrorPage/NotFound";
 
 
 export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <Notfound></Notfound>,
         children: [
             {
                 path: '/',
