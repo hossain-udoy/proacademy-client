@@ -9,6 +9,7 @@ import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import Notfound from "../../pages/ErrorPage/NotFound";
 import Terms from "../../others/terms";
+import Profile from "../../others/Profile";
 
 
 export const routes = createBrowserRouter([
@@ -40,6 +41,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/terms',
                 element: <Terms></Terms>,
+            },
+            {
+                path: '/profile',
+                element: <Profile></Profile>,
             },
             {
                 path: '/Allcourses',

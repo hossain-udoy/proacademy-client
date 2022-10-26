@@ -6,6 +6,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { GithubAuthProvider } from "firebase/auth";
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -53,6 +54,16 @@ const Login = () => {
             })
             .catch(error => console.error(error))
     }
+    const githubProvider = new GithubAuthProvider();
+    const handleGithubSignIn = () => {
+        providerLogin(githubProvider)
+            .then(result => {
+                const user = result.user;
+                verifyEmail();
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
     return (
         <div className='bg-img'>
             <div className="login-wrapper">
@@ -77,7 +88,7 @@ const Login = () => {
                     <div className='flex flex-col text-center'>
                         <button className='mb-2 bg-transparent hover:bg-violet-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-3 ml-3 w-64 shadow-md'><Link to='/register'>Register</Link></button>
                         <button onClick={handleGoogleSignIn} className='mb-2 bg-transparent hover:bg-violet-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-3 ml-3 w-64 shadow-md'>Continue with Google</button>
-                        <button className='mb-2 bg-transparent hover:bg-violet-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-3 ml-3 w-64 shadow-md'>Continue with Github</button>
+                        <button onClick={handleGithubSignIn} className='mb-2 bg-transparent hover:bg-violet-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-3 ml-3 w-64 shadow-md'>Continue with Github</button>
                     </div>
                 </form>
 

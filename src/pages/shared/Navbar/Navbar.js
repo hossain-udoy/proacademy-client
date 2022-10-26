@@ -3,7 +3,9 @@ import { useState } from 'react';
 import logo from '../../../assests/logo.png';
 import Switch from '../../../others/Switch';
 import './Navbar.css'
-
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { FaUser } from 'react-icons/fa';
 
 
 
@@ -11,6 +13,14 @@ import './Navbar.css'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
 
     return (
         <div className="bg-white shadow-xl">
@@ -62,26 +72,45 @@ const Navbar = () => {
 
 
                     </div>
-                    {/* <Link to="/profile">
+                    <Link to="/profile">
                         {user?.photoURL ?
-                            <Image
+                            <img
                                 style={{ height: '30px' }}
-                                roundedCircle
-                                src={user?.photoURL}>
-                            </Image>
+                                className='rounded-full'
+                                src={user?.photoURL} alt="" title={user?.displayName} />
+
                             : <FaUser></FaUser>
                         }
-                    </Link> */}
-                    <div className="flex items-center  space-x-8 lg:flex">
+                    </Link>
+                    <div className="flex items-center lg:flex">
+                        {
+                            user?.uid ?
+                                <>
+                                    <span className='mr-1'>{user?.displayName}</span>
 
-                        <Link
-                            to="/login"
-                            className="inline-flex items-center justify-center h-12 px-6 font-medium  text-black transition duration-200 rounded shadow-md  hover:bg-purple-500   focus:shadow-outline focus:outline-none"
-                            aria-label="Log In"
-                            title="Log In"
-                        >
-                            Log In
-                        </Link>
+                                    <Link
+                                        onClick={handleLogOut}
+                                        className="inline-flex items-center justify-center h-12 px-6 font-medium  text-black transition duration-200 rounded shadow-md  hover:bg-purple-500   focus:shadow-outline focus:outline-none"
+                                        aria-label="Log Out"
+                                        title="Log Out">
+
+                                        Log Out
+                                    </Link>
+                                </>
+                                :
+                                <>
+                                    <Link
+                                        to="/login"
+                                        className="inline-flex items-center justify-center h-12 px-6 font-medium  text-black transition duration-200 rounded shadow-md  hover:bg-purple-500   focus:shadow-outline focus:outline-none"
+                                        aria-label="Log In"
+                                        title="Log In"
+                                    >
+                                        Log In
+                                    </Link>
+                                </>
+                        }
+
+
 
                     </div>
                     <div className="lg:hidden">

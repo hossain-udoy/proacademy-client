@@ -25,10 +25,12 @@ const AuthProvider = ({ children }) => {
     }
 
     const updateUserProfile = (name, photourl) => {
+        setLoading(true);
         return updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: photourl
         });
+
     }
 
     const verifyEmail = () => {
