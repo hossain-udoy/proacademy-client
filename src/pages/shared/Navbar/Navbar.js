@@ -7,10 +7,6 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 
-
-
-
-
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { user, logOut } = useContext(AuthContext);
@@ -25,101 +21,105 @@ const Navbar = () => {
     return (
         <div className="bg-white shadow-xl">
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-                <div className="relative flex items-center justify-between">
-                    <NavLink
-                        to="/"
-                        aria-label="Proacademy"
-                        title="Proacademy"
-                        className="inline-flex items-center nav-link"
-                    >
-                        <img src={logo} alt="Proacademy" />
-
-                        <span className="ml-2 text-4xl  font-bold tracking-wide text-black uppercase">
-                            Proacademy
-                        </span>
-                    </NavLink>
-                    <div className='flex items-center  space-x-8 lg:flex '>
-
-
+                <div className="relative">
+                    <div className='lg:flex items-center justify-between hidden '>
                         <NavLink
-                            to="/home"
-                            aria-label="Our product"
-                            title="Our product"
-                            className="text-xl tracking-wide nav-link transition-colors duration-200 hover:bg-neutral-900 rounded-md hover:text-white p-2"
+                            to="/"
+                            aria-label="Proacademy"
+                            title="Proacademy"
+                            className="inline-flex items-center nav-link"
                         >
-                            Home
-                        </NavLink>
-                        <NavLink
-                            to="/Allcourses"
-                            className="text-xl tracking-wide nav-link transition-colors duration-200 rounded-md hover:bg-neutral-900  hover:text-white p-2 "
-                        >
-                            Courses
-                        </NavLink>
-                        <NavLink
-                            to="/Blog"
-                            className="text-xl tracking-wide nav-link transition-colors duration-200 rounded-md hover:bg-neutral-900  hover:text-white p-2 "
-                        >
-                            Blog
-                        </NavLink>
-                        <NavLink
-                            to="/faq"
-                            className="text-xl tracking-wide nav-link transition-colors duration-200 rounded-md hover:bg-neutral-900  hover:text-white p-2 "
-                        >
-                            FAQ
-                        </NavLink>
+                            <img className='w-8 xl:w-12' src={logo} alt="Proacademy" />
 
-                        <Switch className='sm:hidden'></Switch>
+                            <span className="ml-2 xl:text-3xl  font-bold tracking-wide text-black uppercase">
+                                Proacademy
+                            </span>
+                        </NavLink>
+                        <div className='flex items-center px-2 xl:space-x-3 lg:flex gap-5'>
 
 
+                            <NavLink
+                                to="/home"
+                                aria-label="Our product"
+                                title="Our product"
+                                className="text-xl tracking-wide nav-link transition-colors duration-200 hover:bg-neutral-900 rounded-md hover:text-white p-2"
+                            >
+                                Home
+                            </NavLink>
+                            <NavLink
+                                to="/Allcourses"
+                                className="text-xl tracking-wide nav-link transition-colors duration-200 rounded-md hover:bg-neutral-900  hover:text-white p-2 "
+                            >
+                                Courses
+                            </NavLink>
+                            <NavLink
+                                to="/Blog"
+                                className="text-xl tracking-wide nav-link transition-colors duration-200 rounded-md hover:bg-neutral-900  hover:text-white p-2 "
+                            >
+                                Blog
+                            </NavLink>
+                            <NavLink
+                                to="/faq"
+                                className="text-xl tracking-wide nav-link transition-colors duration-200 rounded-md hover:bg-neutral-900  hover:text-white p-2 "
+                            >
+                                FAQ
+                            </NavLink>
+                            <div> <Switch className='sm:hidden'></Switch></div>
+
+
+
+                        </div>
+
+                        <div className="flex items-center lg:flex gap-4">
+                            <Link to="/profile">
+                                {user?.photoURL ?
+                                    <img
+                                        style={{ height: '30px' }}
+                                        className='rounded-full'
+                                        src={user?.photoURL} alt="" title={user?.displayName} />
+
+                                    : <FaUser></FaUser>
+                                }
+                            </Link>
+                            {
+                                user?.uid ?
+                                    <>
+                                        <span className='mr-1'>{user?.displayName}</span>
+
+                                        <Link
+                                            onClick={handleLogOut}
+                                            className="inline-flex items-center justify-center h-12 px-6 font-medium  text-black transition duration-200 rounded shadow-md  hover:bg-purple-500   focus:shadow-outline focus:outline-none"
+                                            aria-label="Log Out"
+                                            title="Log Out">
+
+                                            Log Out
+                                        </Link>
+                                    </>
+                                    :
+                                    <>
+                                        <Link
+                                            to="/login"
+                                            className="inline-flex items-center justify-center h-12 px-6 font-medium  text-black transition duration-200 rounded shadow-md  hover:bg-purple-500   focus:shadow-outline focus:outline-none"
+                                            aria-label="Log In"
+                                            title="Log In"
+                                        >
+                                            Log In
+                                        </Link>
+                                    </>
+                            }
+
+
+
+                        </div>
                     </div>
-                    <Link to="/profile">
-                        {user?.photoURL ?
-                            <img
-                                style={{ height: '30px' }}
-                                className='rounded-full'
-                                src={user?.photoURL} alt="" title={user?.displayName} />
-
-                            : <FaUser></FaUser>
-                        }
-                    </Link>
-                    <div className="flex items-center lg:flex">
-                        {
-                            user?.uid ?
-                                <>
-                                    <span className='mr-1'>{user?.displayName}</span>
-
-                                    <Link
-                                        onClick={handleLogOut}
-                                        className="inline-flex items-center justify-center h-12 px-6 font-medium  text-black transition duration-200 rounded shadow-md  hover:bg-purple-500   focus:shadow-outline focus:outline-none"
-                                        aria-label="Log Out"
-                                        title="Log Out">
-
-                                        Log Out
-                                    </Link>
-                                </>
-                                :
-                                <>
-                                    <Link
-                                        to="/login"
-                                        className="inline-flex items-center justify-center h-12 px-6 font-medium  text-black transition duration-200 rounded shadow-md  hover:bg-purple-500   focus:shadow-outline focus:outline-none"
-                                        aria-label="Log In"
-                                        title="Log In"
-                                    >
-                                        Log In
-                                    </Link>
-                                </>
-                        }
-
-
-
-                    </div>
-                    <div className="lg:hidden">
+                    <div className="lg:hidden flex justify-end">
                         <button
                             aria-label="Open Menu"
                             title="Open Menu"
                             className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline"
                             onClick={() => setIsMenuOpen(true)}
                         >
+
                             <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
                                 <path
                                     fill="currentColor"
@@ -134,9 +134,10 @@ const Navbar = () => {
                                     d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
                                 />
                             </svg>
+
                         </button>
                         {isMenuOpen && (
-                            <div className="absolute top-0 left-0 w-full">
+                            <div className="absolute z-50 top-0 left-0 w-full">
                                 <div className="p-5 bg-white border rounded shadow-sm">
                                     <div className="flex items-center justify-between mb-4">
                                         <div>
@@ -197,12 +198,32 @@ const Navbar = () => {
                                             Courses
                                         </NavLink>
 
-                                        <Link
-                                            to="/"
-                                            className="inline-flex items-center justify-center h-12 px-6 font-medium  text-black transition duration-200 rounded shadow-md  hover:bg-purple-500   focus:shadow-outline focus:outline-none mt-3"
-                                        >
-                                            Sign up
-                                        </Link>
+                                        {
+                                            user?.uid ?
+                                                <>
+
+
+                                                    <Link
+                                                        onClick={handleLogOut}
+                                                        className="inline-flex items-center justify-center h-12 px-6 font-medium  text-black transition duration-200 rounded shadow-md  hover:bg-purple-500   focus:shadow-outline focus:outline-none"
+                                                        aria-label="Log Out"
+                                                        title="Log Out">
+
+                                                        Log Out
+                                                    </Link>
+                                                </>
+                                                :
+                                                <>
+                                                    <Link
+                                                        to="/login"
+                                                        className="inline-flex items-center justify-center h-12 px-6 font-medium  text-black transition duration-200 rounded shadow-md  hover:bg-purple-500   focus:shadow-outline focus:outline-none"
+                                                        aria-label="Log In"
+                                                        title="Log In"
+                                                    >
+                                                        Log In
+                                                    </Link>
+                                                </>
+                                        }
 
 
 

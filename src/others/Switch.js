@@ -8,7 +8,7 @@ const Switch = () => {
         <div className='flex items-center'>
             <div
                 onClick={() => setSelected(!selected)}
-                className={classNames('flex w-20 bg-gray-500 m-10 rounded-full transition-all duration-500',
+                className={classNames('flex w-16 bg-gray-500 mr-2 rounded-full transition-all duration-500',
                     {
                         'bg-green-500 ': selected,
                     }
@@ -16,18 +16,12 @@ const Switch = () => {
                 )}
             >
                 <span
-                    className={classNames('w-10 h-10 bg-white rounded-full transition-all duration-500 shadow-lg',
+                    className={classNames('w-6 h-6  bg-white rounded-full transition-all duration-500 shadow-xl',
                         {
                             'ml-10': selected,
                         }
                     )}
                 />
-
-
-
-
-
-
             </div>
             <div className='text-black font-semibold '>{selected ? "Light" : "Dark"}</div>
 
