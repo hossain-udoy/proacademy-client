@@ -21,7 +21,7 @@ const Hero = () => {
                     </div>
                     <div className="flex flex-col items-center md:flex-row">
                         <a
-                            href="/"
+                            href="/Allcourses"
                             className="inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-black transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-white hover:bg-purple-700 focus:shadow-outline focus:outline-none"
                         >
                             Enroll Now

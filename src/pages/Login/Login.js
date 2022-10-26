@@ -10,7 +10,8 @@ import { GithubAuthProvider } from "firebase/auth";
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { providerLogin, verifyEmail, signIn, setLoading } = useContext(AuthContext);
+    const [email, setEmail] = useState('')
+    const { providerLogin, verifyEmail, signIn, setLoading, userPasswordReset } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -18,7 +19,7 @@ const Login = () => {
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
-        const email = form.email.value;
+        setEmail(form.email.value);
         const password = form.password.value;
 
         signIn(email, password)
@@ -51,6 +52,7 @@ const Login = () => {
                 const user = result.user;
                 verifyEmail();
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
     }
@@ -61,9 +63,26 @@ const Login = () => {
                 const user = result.user;
                 verifyEmail();
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
     }
+
+    const forgotPassword = () => {
+        userPasswordReset(email)
+            .then(result => {
+                toast.success(
+                    "Reset your password, new password is sent in your email",
+                    {
+                        position: "top-center",
+                        duration: 5000,
+                    }
+                );
+            })
+            .catch(error => { });
+    };
+
+
     return (
         <div className='bg-img'>
             <div className="login-wrapper">
@@ -82,7 +101,7 @@ const Login = () => {
                     </div>
                     <div className='text-base text-red-600'>{error}</div>
                     <button className='mb-2 bg-transparent hover:bg-violet-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-3 ml-3 w-64 shadow-md' type='submit'>Login</button>
-                    <button className='mb-2 bg-transparent hover:bg-violet-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-3 ml-3 w-64 shadow-md' type='submit'>Forget Password</button>
+                    <button onClick={forgotPassword} className='mb-2 bg-transparent hover:bg-violet-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-3 ml-3 w-64 shadow-md' type='submit'>Forget Password</button>
                     <h3 className='border-t-4'> New User? Then regiser for your account with below buttons</h3>
 
                     <div className='flex flex-col text-center'>

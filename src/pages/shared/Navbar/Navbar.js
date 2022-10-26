@@ -26,23 +26,23 @@ const Navbar = () => {
         <div className="bg-white shadow-xl">
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
-                    <Link
+                    <NavLink
                         to="/"
-                        aria-label="Company"
-                        title="Company"
-                        className="inline-flex items-center"
+                        aria-label="Proacademy"
+                        title="Proacademy"
+                        className="inline-flex items-center nav-link"
                     >
                         <img src={logo} alt="Proacademy" />
 
                         <span className="ml-2 text-4xl  font-bold tracking-wide text-black uppercase">
                             Proacademy
                         </span>
-                    </Link>
+                    </NavLink>
                     <div className='flex items-center  space-x-8 lg:flex '>
 
 
                         <NavLink
-                            to="/"
+                            to="/home"
                             aria-label="Our product"
                             title="Our product"
                             className="text-xl tracking-wide nav-link transition-colors duration-200 hover:bg-neutral-900 rounded-md hover:text-white p-2"

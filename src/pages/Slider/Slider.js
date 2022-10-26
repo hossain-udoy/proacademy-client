@@ -23,7 +23,7 @@ SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
 
 export default function SwiperCoverflow() {
     return (
-        <div className="App">
+        <div className="App mt-5">
             <Swiper
                 navigation
                 pagination={{ clickable: true }}
@@ -37,7 +37,7 @@ export default function SwiperCoverflow() {
                 }}
                 slidesPerView={2}
                 centeredSlides
-                style={{ height: "500px" }}
+                style={{ height: "40vh" }}
             >
                 <SwiperSlide
                     style={{

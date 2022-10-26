@@ -10,6 +10,8 @@ import Register from "../../pages/Register/Register";
 import Notfound from "../../pages/ErrorPage/NotFound";
 import Terms from "../../others/terms";
 import Profile from "../../others/Profile";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Checkout from "../../pages/Checkout/Checkout";
 
 
 export const routes = createBrowserRouter([
@@ -20,6 +22,10 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
+                element: <Home></Home>,
+            },
+            {
+                path: '/home',
                 element: <Home></Home>,
             },
             {
@@ -44,16 +50,21 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/profile',
-                element: <Profile></Profile>,
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>,
             },
             {
                 path: '/Allcourses',
-                element: <AllCourses></AllCourses>,
+                element: <PrivateRoute> <AllCourses></AllCourses></PrivateRoute>,
                 loader: () => fetch(`https://proacademy-server.vercel.app/courses`)
             },
             {
+                path: '/Checkout/:id',
+                element: <PrivateRoute> <Checkout></Checkout></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://proacademy-server.vercel.app/courses/${params.id}`)
+            },
+            {
                 path: '/Course/:id',
-                element: <Course></Course>,
+                element: <PrivateRoute> <Course></Course></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://proacademy-server.vercel.app/category/${params.id}`)
             }
         ]

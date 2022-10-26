@@ -1,8 +1,8 @@
 import React, { useContext, useRef, useState } from 'react';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 
-const Register = () => {
-    const { user, updateUserProfile, setLoading } = useContext(AuthContext);
+const Profile = () => {
+    const { user, updateUserProfile } = useContext(AuthContext);
     const [name, setName] = useState(user.displayName);
     const photoURLRef = useRef(user.photoURL);
 
@@ -16,7 +16,7 @@ const Register = () => {
 
         setName(event.target.value)
     }
-    setLoading(false);
+
     return (
         <div>
             <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -56,4 +56,4 @@ const Register = () => {
 
 };
 
-export default Register;
+export default Profile;
