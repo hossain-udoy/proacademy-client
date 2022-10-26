@@ -1,3 +1,7 @@
+.nav-link {
+    @apply text-black;
+}
+
 .active {
     @apply text-violet-500;
 }
