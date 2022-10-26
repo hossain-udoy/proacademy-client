@@ -93,7 +93,7 @@ const Register = () => {
 
                                 <input type="checkbox"
                                     onClick={handleAccepted} />
-                                <label className="block">{<>Accept <Link to="/terms">Terms</Link></>} and conditions</label>
+                                <label className="block">{<>Accept <Link className='text-blue-600' to="/terms">Terms</Link></>} and conditions</label>
                             </div>
                             <div className="flex" >
                                 <button className="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" disabled={!accepted}>Create
