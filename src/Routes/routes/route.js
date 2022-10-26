@@ -8,6 +8,7 @@ import Course from "../../pages/Course/Course";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import Notfound from "../../pages/ErrorPage/NotFound";
+import Terms from "../../others/terms";
 
 
 export const routes = createBrowserRouter([
@@ -35,6 +36,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>,
+            },
+            {
+                path: '/terms',
+                element: <Terms></Terms>,
             },
             {
                 path: '/Allcourses',

@@ -3,10 +3,44 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const { providerLogin, verifyEmail } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const { providerLogin, verifyEmail, signIn, setLoading } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                setError('');
+                if (user.emailVerified) {
+                    navigate(from, { replace: true });
+                }
+                else {
+                    toast.error('Your email is not verified. Please verify your email address.')
+                }
+            })
+            .catch(error => {
+                console.error(error)
+                setError(error.message);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
+    }
 
     const googleProvider = new GoogleAuthProvider()
 
@@ -22,19 +56,20 @@ const Login = () => {
     return (
         <div className='bg-img'>
             <div className="login-wrapper">
-                <form action="" className="form">
+                <form onSubmit={handleSubmit} action="" className="form">
 
                     <h2 className='text-2xl'>Login</h2>
                     <div className="input-group">
-                        <label htmlFor="loginUser">User Name</label>
-                        <input type="text" name="loginUser" id="loginUser" required />
+                        <label htmlFor="loginUser">User Email</label>
+                        <input type="email" name="email" id="loginUser" required />
 
                     </div>
                     <div className="input-group">
                         <label htmlFor="loginPassword">Password</label>
-                        <input type="password" name="loginPassword" id="loginPassword" required />
+                        <input type="password" name="password" id="loginPassword" required />
 
                     </div>
+                    <div className='text-base text-red-600'>{error}</div>
                     <button className='mb-2 bg-transparent hover:bg-violet-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-3 ml-3 w-64 shadow-md' type='submit'>Login</button>
                     <button className='mb-2 bg-transparent hover:bg-violet-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-3 ml-3 w-64 shadow-md' type='submit'>Forget Password</button>
                     <h3 className='border-t-4'> New User? Then regiser for your account with below buttons</h3>
