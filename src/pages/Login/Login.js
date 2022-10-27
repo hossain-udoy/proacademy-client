@@ -61,7 +61,6 @@ const Login = () => {
         providerLogin(githubProvider)
             .then(result => {
                 const user = result.user;
-                verifyEmail();
                 console.log(user);
                 navigate(from, { replace: true });
             })

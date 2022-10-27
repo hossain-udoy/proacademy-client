@@ -3,11 +3,13 @@ import Hero from '../../others/hero';
 import Testimonial from '../../others/Testimonial';
 import SwiperCoverflow from '../Slider/Slider';
 
+
 const Home = () => {
+
     return (
-        <div>
+        <div className='bg-black'>
             <Hero></Hero>
-            <SwiperCoverflow />
+            <SwiperCoverflow></SwiperCoverflow>
             <Testimonial></Testimonial>
         </div>
     );

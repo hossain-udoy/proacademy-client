@@ -36,12 +36,9 @@ const Register = () => {
     }
 
     const handleUpdateUserProfile = (name, photoURL) => {
-        const profile = {
-            displayName: name,
-            photoURL: photoURL
-        }
 
-        updateUserProfile(profile)
+
+        updateUserProfile(name, photoURL)
             .then(() => { })
             .catch(error => console.error(error));
     }
@@ -103,7 +100,7 @@ const Register = () => {
                             <div className='text-base text-red-600'>{error}</div>
                             <div className="mt-6 text-grey-dark">
                                 Already have an account?
-                                <Link className="text-blue-600 hover:underline " href="/login">
+                                <Link className="text-blue-600 hover:underline " to='/login'>
                                     Log in
                                 </Link>
                             </div>

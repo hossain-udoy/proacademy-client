@@ -9,7 +9,7 @@ import { FaUser } from 'react-icons/fa';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, theme, text } = useContext(AuthContext);
 
     const handleLogOut = () => {
         logOut()
@@ -19,7 +19,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="bg-white shadow-xl">
+        <div className={`bg-white shadow-xl ${theme} ${text}`}>
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative">
                     <div className='lg:flex items-center justify-between hidden '>
@@ -31,36 +31,36 @@ const Navbar = () => {
                         >
                             <img className='w-8 xl:w-12' src={logo} alt="Proacademy" />
 
-                            <span className="ml-2 xl:text-3xl  font-bold tracking-wide text-black uppercase">
+                            <span className={`ml-2 xl:text-3xl  font-bold tracking-wide text-black uppercase ${theme} `}>
                                 Proacademy
                             </span>
                         </NavLink>
-                        <div className='flex items-center px-2 xl:space-x-3 lg:flex gap-5'>
+                        <div className={`flex items-center px-2 xl:space-x-3 lg:flex gap-5 text-xl tracking-wide nav-link transition-colors duration-200 rounded-md  p-2 `}>
 
 
-                            <NavLink
+                            <NavLink className={`${theme}`}
                                 to="/home"
                                 aria-label="Our product"
                                 title="Our product"
-                                className="text-xl tracking-wide nav-link transition-colors duration-200 hover:bg-neutral-900 rounded-md hover:text-white p-2"
+
                             >
                                 Home
                             </NavLink>
-                            <NavLink
+                            <NavLink className={`${theme}`}
                                 to="/Allcourses"
-                                className="text-xl tracking-wide nav-link transition-colors duration-200 rounded-md hover:bg-neutral-900  hover:text-white p-2 "
+
                             >
                                 Courses
                             </NavLink>
-                            <NavLink
+                            <NavLink className={`${theme}`}
                                 to="/blog"
-                                className="text-xl tracking-wide nav-link transition-colors duration-200 rounded-md hover:bg-neutral-900  hover:text-white p-2 "
+
                             >
                                 Blog
                             </NavLink>
-                            <NavLink
+                            <NavLink className={`${theme}`}
                                 to="/faq"
-                                className="text-xl tracking-wide nav-link transition-colors duration-200 rounded-md hover:bg-neutral-900  hover:text-white p-2 "
+
                             >
                                 FAQ
                             </NavLink>
@@ -88,7 +88,7 @@ const Navbar = () => {
 
                                         <Link
                                             onClick={handleLogOut}
-                                            className="inline-flex items-center justify-center h-12 px-6 font-medium  text-black transition duration-200 rounded shadow-md  hover:bg-purple-500   focus:shadow-outline focus:outline-none"
+                                            className={`inline-flex items-center justify-center h-12 px-6 font-medium  text-black transition duration-200 rounded shadow-md  hover:bg-purple-500  focus:shadow-outline focus:outline-none ${theme}`}
                                             aria-label="Log Out"
                                             title="Log Out">
 

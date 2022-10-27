@@ -57,7 +57,7 @@ const Questions = () => {
                             </span>{' '}
                             Are Some Faq's
                         </h2>
-                        <p className="text-base text-gray-700 md:text-lg">
+                        <p className="text-base text-black md:text-lg">
                             You can give us your questions through newsletter.We will try to answer.
                         </p>
                     </div>

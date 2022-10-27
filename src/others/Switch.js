@@ -1,9 +1,12 @@
 import React from 'react';
-import { useState } from 'react';
 import classNames from 'classnames';
+import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
+import { useContext, useState } from 'react';
 
 const Switch = () => {
     const [selected, setSelected] = useState(true);
+    const { setTheme } = useContext(AuthContext);
+    const { setText } = useContext(AuthContext);
     return (
         <div className='flex items-center'>
             <div
@@ -23,7 +26,10 @@ const Switch = () => {
                     )}
                 />
             </div>
-            <div className='text-black font-semibold '>{selected ? "Light" : "Dark"}</div>
+            <div>{selected ? <>{setTheme("bg-white")}{setText(" text-black")}</> : <>{setTheme("bg-black text-white")}{setText("text-white ")}</>}</div>
+
+
+            <div className='text-black font-semibold '>{selected ? "Light" : <div className='text-white'>Dark</div>}</div>
 
         </div>
     );

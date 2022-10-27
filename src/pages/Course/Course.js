@@ -9,7 +9,7 @@ import { AiOutlineDownload } from 'react-icons/ai'
 import { useReactToPrint } from "react-to-print";
 
 const Course = () => {
-    const { id, cover, videos, ratings, coursesName, mentor, totalTime, mentor_img, priceAll } = useLoaderData();
+    const { id, details, cover, videos, ratings, coursesName, mentor, totalTime, mentor_img, priceAll } = useLoaderData();
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
@@ -30,6 +30,7 @@ const Course = () => {
                             <p className='flex items-center gap-2'><AiFillStar className='text-lg text-yellow-500' ></AiFillStar> {ratings}</p>
                         </div>
                         <div className="font-bold text-lg mb-2 mt-3 text-center text-black">{coursesName}</div>
+                        <p className='px-2 text-justify'>{details}</p>
                         <div className='flex items-center gap-2 ml-8 mt-7 mb-7'>
                             <img className='rounded-full shadow' width='40' height='40' src={mentor_img} alt="" />
                             <p className='text-base font-semibold'>{mentor}</p>

@@ -1,31 +1,20 @@
 import React from 'react';
 import './Slider.css';
-import img1 from "../../assests/img/img-1.jpg"
-import img2 from "../../assests/img/img-2.jpg"
-import img3 from "../../assests/img/img-3.jpg"
-import img4 from "../../assests/img/img-4.jpg"
-import img5 from "../../assests/img/img-5.jpg"
-// import img6 from "../../assests/img/img-6.jpg"
-// import img7 from "../../assests/img/img-7.jpg"
-// import img8 from "../../assests/img/img-8.jpg"
+
 
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination, EffectCoverflow } from "swiper";
+import SwiperCore, { Pagination, EffectCoverflow } from "swiper";
 
-// Import Swiper styles
-// import "swiper/swiper.scss";
-// import "swiper/components/navigation/navigation.scss";
-// import "swiper/components/pagination/pagination.scss";
-// import "swiper/components/effect-coverflow/effect-coverflow.scss";
 
-SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
+
+SwiperCore.use([Pagination, EffectCoverflow]);
 
 export default function SwiperCoverflow() {
     return (
         <div className="App mt-5">
             <Swiper
-                navigation
+                // navigation
                 pagination={{ clickable: true }}
                 effect="coverflow"
                 coverflowEffect={{
@@ -35,7 +24,7 @@ export default function SwiperCoverflow() {
                     modifier: 1,
                     slideShadows: false
                 }}
-                slidesPerView={2}
+                slidesPerView={3}
                 centeredSlides
                 style={{ height: "40vh" }}
             >

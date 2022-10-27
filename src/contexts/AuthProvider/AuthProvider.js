@@ -8,6 +8,8 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [theme, setTheme] = useState(null);
+    const [text, setText] = useState(null);
 
     const providerLogin = (provider) => {
         setLoading(true);
@@ -46,7 +48,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('inside auth state change', currentUser);
 
-            if (currentUser === null || currentUser.emailVerified) {
+            if (currentUser === null || currentUser.emailVerified || currentUser.uid) {
                 setUser(currentUser);
             }
             setLoading(false);
@@ -72,7 +74,7 @@ const AuthProvider = ({ children }) => {
         updateUserProfile,
         verifyEmail,
         createUser,
-        signIn, userPasswordReset
+        signIn, userPasswordReset, theme, setTheme, text, setText
     };
 
     return (
