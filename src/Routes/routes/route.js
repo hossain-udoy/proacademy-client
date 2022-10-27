@@ -54,17 +54,17 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/Allcourses',
-                element: <PrivateRoute> <AllCourses></AllCourses></PrivateRoute>,
+                element: <AllCourses></AllCourses>,
                 loader: () => fetch(`https://proacademy-server.vercel.app/courses`)
             },
             {
                 path: '/Checkout/:id',
-                element: <PrivateRoute> <Checkout></Checkout></PrivateRoute>,
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://proacademy-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/Course/:id',
-                element: <PrivateRoute> <Course></Course></PrivateRoute>,
+                element: <Course></Course>,
                 loader: ({ params }) => fetch(`https://proacademy-server.vercel.app/category/${params.id}`)
             }
         ]

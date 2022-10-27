@@ -19,10 +19,11 @@ const Login = () => {
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
-        setEmail(form.email.value);
+        const EmailL = form.email.value
+        setEmail(EmailL);
         const password = form.password.value;
 
-        signIn(email, password)
+        signIn(EmailL, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -101,7 +102,7 @@ const Login = () => {
                     <div className='text-base text-red-600'>{error}</div>
                     <button className='mb-2 bg-transparent hover:bg-violet-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-3 ml-3 w-64 shadow-md' type='submit'>Login</button>
                     <button onClick={forgotPassword} className='mb-2 bg-transparent hover:bg-violet-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-3 ml-3 w-64 shadow-md' type='submit'>Forget Password</button>
-                    <h3 className='border-t-4'> New User? Then regiser for your account with below buttons</h3>
+                    <h3 className='border-t-4'> New User ? Then regiser for your account with below buttons</h3>
 
                     <div className='flex flex-col text-center'>
                         <button className='mb-2 bg-transparent hover:bg-violet-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-3 ml-3 w-64 shadow-md'><Link to='/register'>Register</Link></button>

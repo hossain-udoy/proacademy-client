@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import logo from '../../../assests/logo.png';
-import Switch from '../../../others/Switch';
+import Switch from '../../../others/Switch'
 import './Navbar.css'
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
@@ -9,7 +9,7 @@ import { FaUser } from 'react-icons/fa';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { user, logOut, theme, text } = useContext(AuthContext);
+    const { user, logOut, theme } = useContext(AuthContext);
 
     const handleLogOut = () => {
         logOut()
@@ -19,7 +19,7 @@ const Navbar = () => {
 
 
     return (
-        <div className={`bg-white shadow-xl ${theme} ${text}`}>
+        <div className={`bg-white shadow-xl ${theme} `}>
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative">
                     <div className='lg:flex items-center justify-between hidden '>
@@ -64,7 +64,7 @@ const Navbar = () => {
                             >
                                 FAQ
                             </NavLink>
-                            <div> <Switch className='sm:hidden'></Switch></div>
+                            <div> <Switch className='sm:hidden' /></div>
 
 
 

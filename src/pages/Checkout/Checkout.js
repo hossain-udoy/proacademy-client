@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Checkout = () => {
     const { cover, ratings, coursesName, priceAll } = useLoaderData();
+    const { user } = useContext(AuthContext);
 
     const checkOut = () => {
         toast.success(
-            "You Successfully enrolled the course",
+            `${user.displayName} Successfully enrolled the course`,
             {
                 position: "top-center",
                 duration: 3000,
@@ -19,7 +21,8 @@ const Checkout = () => {
     return (
         <div>
             <div className="bg-gray-600 py-12">
-                {" "}
+
+
                 <div className="w-full max-w-xl mx-auto  bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <img src={cover} alt="" />
                     <div className="px-5 pb-5">

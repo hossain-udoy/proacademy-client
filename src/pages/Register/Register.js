@@ -61,7 +61,7 @@ const Register = () => {
                     <form onSubmit={handleSubmit} action="">
                         <div className="mt-4">
                             <div>
-                                <label className="block" htmlFor="Name">Name</label>
+                                <label className="block" htmlFor="Name">Full Name</label>
                                 <input type="text" name="name" placeholder="Name"
                                     className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
 
