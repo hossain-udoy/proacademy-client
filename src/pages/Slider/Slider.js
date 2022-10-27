@@ -5,6 +5,7 @@ import './Slider.css';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, EffectCoverflow } from "swiper";
+import { Link } from 'react-router-dom';
 
 
 
@@ -13,6 +14,7 @@ SwiperCore.use([Pagination, EffectCoverflow]);
 export default function SwiperCoverflow() {
     return (
         <div className="App mt-5">
+            <h1 className='text-2xl text-white'><Link to="/Allcourses">Our Courses</Link></h1>
             <Swiper
                 // navigation
                 pagination={{ clickable: true }}
@@ -24,90 +26,65 @@ export default function SwiperCoverflow() {
                     modifier: 1,
                     slideShadows: false
                 }}
-                slidesPerView={3}
+                slidesPerView={4}
                 centeredSlides
-                style={{ height: "40vh" }}
+                style={{ height: "60vh", width: "80vw" }}
             >
                 <SwiperSlide
                     style={{
+                        color: "white",
                         backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-1.jpg)"
+                            "url(https://dantheengineer.com/content/images/2022/06/python-django-1.png)"
                     }}
                 >
-                    Slide 1
+                    Python Django
                 </SwiperSlide>
                 <SwiperSlide
                     style={{
+                        color: "white",
                         backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-2.jpg)"
+                            "url(https://miro.medium.com/max/720/1*Aih9FwHjvM6AEL1aBh6W2g.png)"
                     }}
                 >
-                    Slide 2
+                    Introduction to Js
                 </SwiperSlide>
                 <SwiperSlide
                     style={{
+                        color: "white",
                         backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-3.jpg)"
+                            "url(https://developers.redhat.com/sites/default/files/styles/article_feature/public/blog/2021/03/nodejs-reference-architecture_1x.png?itok=MqGeWTLm)"
                     }}
                 >
-                    Slide 3
+                    Node Js
                 </SwiperSlide>
                 <SwiperSlide
                     style={{
+                        color: "white",
                         backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-4.jpg)"
+                            "url(https://reactjs.org/logo-og.png)"
                     }}
                 >
-                    Slide 4
+                    React Js
                 </SwiperSlide>
                 <SwiperSlide
                     style={{
+                        color: "white",
                         backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-5.jpg)"
+                            "url(https://www.php.net/images/meta-image.png)"
                     }}
                 >
-                    Slide 5
+                    PHP
                 </SwiperSlide>
                 <SwiperSlide
                     style={{
+                        color: "black",
                         backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-6.jpg)"
+                            "url(https://cdn.educba.com/academy/wp-content/uploads/2019/09/Front-End-Languages.png)"
                     }}
                 >
-                    Slide 6
+                    Html,Css,Js,C+
                 </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-7.jpg)"
-                    }}
-                >
-                    Slide 7
-                </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-8.jpg)"
-                    }}
-                >
-                    Slide 8
-                </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-9.jpg)"
-                    }}
-                >
-                    Slide 9
-                </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-10.jpg)"
-                    }}
-                >
-                    Slide 10
-                </SwiperSlide>
+
             </Swiper>
         </div>
     );
