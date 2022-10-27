@@ -53,7 +53,7 @@ const Navbar = () => {
                                 Courses
                             </NavLink>
                             <NavLink
-                                to="/Blog"
+                                to="/blog"
                                 className="text-xl tracking-wide nav-link transition-colors duration-200 rounded-md hover:bg-neutral-900  hover:text-white p-2 "
                             >
                                 Blog
@@ -174,25 +174,25 @@ const Navbar = () => {
 
 
                                         <NavLink
-                                            to="/"
+                                            to="/home"
                                             className="font-medium tracking-wide nav-link transition-colors duration-200 hover:bg-red-400 p-1 "
                                         >
                                             Home
                                         </NavLink>
                                         <NavLink
-                                            to="/"
+                                            to="/faq"
                                             className="font-medium tracking-wide nav-link transition-colors duration-200 hover:bg-red-400 p-1 "
                                         >
                                             Faq
                                         </NavLink>
                                         <NavLink
-                                            to="/"
+                                            to="/blog"
                                             className="font-medium tracking-wide nav-link transition-colors duration-200 hover:bg-red-400 p-1 "
                                         >
                                             Blog
                                         </NavLink>
                                         <NavLink
-                                            to="/"
+                                            to="/Allcourses"
                                             className="font-medium tracking-wide nav-link transition-colors duration-200 hover:bg-red-400 p-1 "
                                         >
                                             Courses
